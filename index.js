@@ -52,9 +52,6 @@ const botRun = () => {
 					}
 				})();
 				break;
-			case "my avatar":
-				message.reply("dm kien");
-				break;
 		}
 	});
 };
