@@ -13,4 +13,4 @@ app.use("/", (req, res) => {
 	res.send("bot is running");
 });
 
-app.listen(80);
+app.listen(process.env.PORT);
