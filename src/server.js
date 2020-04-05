@@ -5,18 +5,20 @@ const mongoose = require("mongoose");
 
 const dotenv = require("dotenv");
 
+const path = require("path");
+
 dotenv.config({
-	path: "./environments/.env.server",
+	path: path.join(__dirname, "/./../environments/.env.server"),
 });
 dotenv.config({
-	path: "./environments/.env.database",
+	path: path.join(__dirname, "/./../environments/.env.database"),
 });
 
 var start = null;
 
 const connectWithRetry = () => {
 	let uri = process.env.DATABASE_URI;
-	uri = uri.replace("admin", process.env.DATABASE_USERNAME);
+	uri = uri.replace("<username>", process.env.DATABASE_USERNAME);
 	uri = uri.replace("<password>", process.env.DATABASE_PASSWORD);
 	mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 	var db = mongoose.connection;
@@ -31,7 +33,7 @@ const connectWithRetry = () => {
 connectWithRetry();
 app.use("/", (req, res) => {
 	if (!start) {
-		start = require("./src/index");
+		start = require("./index");
 		start();
 	}
 

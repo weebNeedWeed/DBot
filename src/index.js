@@ -43,6 +43,9 @@ const botRun = () => {
 			case "config":
 				getCommand("config")(message, parsedCommand.arguments);
 				break;
+			case "test":
+				getCommand("test")(message, parsedCommand.arguments);
+				break;
 		}
 	});
 };
