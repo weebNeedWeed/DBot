@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 
-const apiKey = require("./../models/apikey");
+const apiKey = require("../models/apikey");
 
 const fetch = require("node-fetch");
 
@@ -44,6 +44,12 @@ const test = async function (message) {
 				name: field.toUpperCase(),
 				value: data[field],
 			};
+			if (field === "is_online") {
+				fieldData = {
+					name: "status",
+					value: data[field] === 1 ? "online" : "offline",
+				};
+			}
 			return fieldData;
 		});
 
