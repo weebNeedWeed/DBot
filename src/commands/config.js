@@ -1,4 +1,4 @@
-const apikey = require("./../../models/apikey");
+const apikey = require("./../models/apikey");
 
 const config = async (message, argument) => {
 	const key = argument[0];
