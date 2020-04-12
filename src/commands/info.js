@@ -46,8 +46,8 @@ const test = async function (message) {
 			};
 			if (field === "is_online") {
 				fieldData = {
-					name: "status",
-					value: data[field] === 1 ? "online" : "offline",
+					name: "STATUS",
+					value: data[field] === "1" ? "online" : "offline",
 				};
 			}
 			return fieldData;
