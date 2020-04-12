@@ -43,7 +43,7 @@ const botRun = () => {
 			case "config":
 				getCommand("config")(message, parsedCommand.arguments);
 				break;
-			case "test":
+			case "info":
 				getCommand("info")(message, parsedCommand.arguments);
 				break;
 		}
